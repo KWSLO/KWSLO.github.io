@@ -57,10 +57,4 @@
     background: #C9553D !important;
 }
 
-.categoryBar-list-item {
-    filter: grayscale(0%);
-}
 
-.categoryBar-list-item:hover {
-    filter: grayscale(0%);
-}
