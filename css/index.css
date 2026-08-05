@@ -4231,39 +4231,6 @@ figure.highlight pre .javascript .function {
 #post-comment.move .comment-wrap > div:last-child {
   display: block;
 }
-#site-name:hover:before {
-  position: fixed;
-  width: fit-content;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: 10%;
-  border-radius: 10px;
-  text-align: center;
-  z-index: 100;
-  content: attr(data-title);
-  font-size: 20px;
-  color: #fff;
-  padding: 10px;
-  background-color: rgba(250,248,242,0.9);
-}
-[data-theme=dark] a#site-name:hover:before {
-  background-color: rgba(18,18,18,0.8);
-}
-@media screen and (min-width: 768px) {
-  a#site-name:hover:before {
-    max-width: 800px;
-  }
-}
-@media screen and (max-width: 768px) {
-  a#site-name {
-    -webkit-line-clamp: 1;
-    word-break: break-all;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-}
 #footer {
   position: relative;
   background-color: #faf8f2;
@@ -4749,17 +4716,7 @@ figure.highlight pre .javascript .function {
   font-weight: bold;
 }
 #nav .menus_items {
-  position: absolute;
-  left: 0;
-  visibility: hidden;
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-  -webkit-transition: visibility 0.3s, opacity 0.3s;
-  -moz-transition: visibility 0.3s, opacity 0.3s;
-  -o-transition: visibility 0.3s, opacity 0.3s;
-  -ms-transition: visibility 0.3s, opacity 0.3s;
-  transition: visibility 0.3s, opacity 0.3s;
+  display: inline;
 }
 #nav .menus_items .menus_item {
   position: relative;
@@ -4830,27 +4787,15 @@ figure.highlight pre .javascript .function {
   color: var(--font-color) !important;
   text-shadow: none !important;
 }
-#nav #nav:hover .menus_items #toggle-menu,
-#nav visibility: visible #toggle-menu,
-#nav opacity: 1 #toggle-menu,
 #nav.hide-menu #toggle-menu {
   display: inline-block !important;
 }
-#nav #nav:hover .menus_items #toggle-menu .site-page,
-#nav visibility: visible #toggle-menu .site-page,
-#nav opacity: 1 #toggle-menu .site-page,
 #nav.hide-menu #toggle-menu .site-page {
   font-size: inherit;
 }
-#nav #nav:hover .menus_items .menus_items,
-#nav visibility: visible .menus_items,
-#nav opacity: 1 .menus_items,
 #nav.hide-menu .menus_items {
   display: none;
 }
-#nav #nav:hover .menus_items #search-button span:not(.site-page),
-#nav visibility: visible #search-button span:not(.site-page),
-#nav opacity: 1 #search-button span:not(.site-page),
 #nav.hide-menu #search-button span:not(.site-page) {
   display: none;
 }
