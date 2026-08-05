@@ -1,0 +1,22 @@
+:root {
+  --font-color: #292724;
+}
+
+/* 首页文章标题 */
+.recent-post-item .post-title {
+  color: #292724 !important;
+}
+
+.recent-post-item .post-title:hover {
+  color: #F47466 !important;
+}
+
+/* 文章页标题 */
+#post-info .post-title {
+  color: #292724 !important;
+}
+
+/* 日期等信息 */
+.post-meta {
+  color: #8A8178 !important;
+}
