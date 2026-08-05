@@ -56,3 +56,7 @@
 #rightside > div button:hover {
     background: #C9553D !important;
 }
+
+.categoryBar-list-item {
+    filter: none !important;
+}
