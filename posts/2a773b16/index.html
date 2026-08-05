@@ -200,7 +200,7 @@
   isHighlightShrink: false,
   isToc: false,
   pageType: 'post'
-}</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div id="loading-box"><div class="loader-o"><div class="wrapper"><div class="squares"><span class="load-square"></span><span class="load-square"></span></div><p>loading</p></div></div></div><script>(()=>{
+}</script><link rel="stylesheet" href="/css/style.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"></head><body><div id="loading-box"><div class="loader-o"><div class="wrapper"><div class="squares"><span class="load-square"></span><span class="load-square"></span></div><p>loading</p></div></div></div><script>(()=>{
   const $loadingBox = document.getElementById('loading-box')
   if (!$loadingBox) return
   
@@ -333,7 +333,17 @@
         html, body { width: 100%; height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; background: ${bg}; }
         svg { max-width: 100%; max-height: 100%; height: auto; width: auto; }
       </style>
-      </head><body>${svgSource}</body></html>`
+      </head><body>${svgSource}<!-- hexo injector body_end start --><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 380px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 320px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><!-- hexo injector body_end end --></body></html>`
     const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' })
     const url = URL.createObjectURL(blob)
     window.open(url, '_blank', 'noopener')
