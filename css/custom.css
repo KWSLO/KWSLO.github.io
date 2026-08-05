@@ -1,4 +1,60 @@
-/* 分类磁贴取消黑白滤镜 */
-.categoryBar-list-item {
-    filter: none !important;
+/* 全局文字 */
+:root {
+    --font-color: #292724;
 }
+
+
+/* 上一篇/下一篇文章 */
+#pagination .prev-post,
+#pagination .next-post {
+    background: #E76F51 !important;
+}
+
+
+#pagination .prev-post:hover,
+#pagination .next-post:hover {
+    background: #C9553D !important;
+}
+
+
+/* 分页文字 */
+#pagination a {
+    color: #fff !important;
+}
+
+
+/* 文章版权 */
+.post-copyright {
+    background: #F8EFE8 !important;
+    border-color: #E7DED5 !important;
+}
+
+
+/* 版权标题红色 */
+.post-copyright .post-copyright-meta {
+    color: #E76F51 !important;
+}
+
+
+/* 分享按钮统一红色 */
+.share-button {
+    border-color: #E76F51 !important;
+}
+
+.share-button:hover {
+    background: #E76F51 !important;
+    color: white !important;
+}
+
+
+/* 右侧浮动按钮 */
+#rightside > div button {
+    background: #E76F51 !important;
+    color: white !important;
+}
+
+#rightside > div button:hover {
+    background: #C9553D !important;
+}
+
+
