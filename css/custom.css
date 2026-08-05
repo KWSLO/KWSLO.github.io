@@ -1,35 +1,58 @@
+/* 全局文字 */
 :root {
-  --font-color: #292724;
+    --font-color: #292724;
 }
 
-/* 首页文章标题 */
-.recent-post-item .post-title {
-  color: #292724 !important;
-}
 
-.recent-post-item .post-title:hover {
-  color: #F47466 !important;
-}
-
-/* 文章页标题 */
-#post-info .post-title {
-  color: #292724 !important;
-}
-
-/* 日期等信息 */
-.post-meta {
-  color: #8A8178 !important;
-}
-
+/* 上一篇/下一篇文章 */
 #pagination .prev-post,
 #pagination .next-post {
-    color: #292724;
+    background: #E76F51 !important;
 }
 
+
+#pagination .prev-post:hover,
+#pagination .next-post:hover {
+    background: #C9553D !important;
+}
+
+
+/* 分页文字 */
+#pagination a {
+    color: #fff !important;
+}
+
+
+/* 文章版权 */
 .post-copyright {
-  color: #8A8178;
+    background: #F8EFE8 !important;
+    border-color: #E7DED5 !important;
 }
 
-.post-copyright .post-copyright-info a {
-  color: #C85C4A;
+
+/* 版权标题红色 */
+.post-copyright .post-copyright-meta {
+    color: #E76F51 !important;
+}
+
+
+/* 分享按钮统一红色 */
+.share-button {
+    border-color: #E76F51 !important;
+}
+
+.share-button:hover {
+    background: #E76F51 !important;
+    color: white !important;
+}
+
+
+/* 右侧浮动按钮 */
+#rightside > div button {
+    background: #E76F51 !important;
+    color: white !important;
+}
+
+#rightside > div button:hover {
+    background: #C9553D !important;
 }
