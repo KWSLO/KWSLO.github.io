@@ -1656,7 +1656,7 @@ canvas:not(#ribbon-canvas),
   --card-meta: #8a8178;
   --sidebar-bg: #f6f8fa;
   --sidebar-menu-bg: #fff;
-  --btn-hover-color: #e98b7d;
+  --btn-hover-color: #b85c44;
   --btn-color: #fff;
   --btn-bg: #faf8f2;
   --text-bg-hover: rgba(250,248,242,0.7);
@@ -1670,7 +1670,7 @@ canvas:not(#ribbon-canvas),
   --toc-link-color: #666261;
   --card-box-shadow: 0 3px 8px 6px rgba(7,17,27,0.05);
   --card-hover-box-shadow: 0 3px 8px 6px rgba(7,17,27,0.09);
-  --pseudo-hover: #e98b7d;
+  --pseudo-hover: #b85c44;
   --headline-presudo: #a0a0a0;
   --scrollbar-color: #c9bfb2;
   --default-bg-color: #faf8f2;
@@ -4913,7 +4913,7 @@ figure.highlight pre .javascript .function {
   text-align: center;
 }
 #pagination .page-number.current {
-  background: #e8d8d0;
+  background: #d9d0c4;
   color: var(--white);
 }
 #pagination .full-width {
@@ -5772,7 +5772,7 @@ figure.highlight pre .javascript .function {
 #waline-wrap {
   --waline-font-size: 1.1em;
   --waline-theme-color: #faf8f2;
-  --waline-active-color: #e98b7d;
+  --waline-active-color: #b85c44;
 }
 #waline-wrap .wl-comment-actions > button:not(last-child) {
   padding-right: 4px;
@@ -7759,7 +7759,7 @@ blockquote.pullquote.right {
   font-size: 12px;
 }
 .search-dialog .ais-Pagination .ais-Pagination-item--selected .ais-Pagination-link {
-  background: #e8d8d0;
+  background: #d9d0c4;
   font-weight: 600;
   cursor: default;
 }
