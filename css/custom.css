@@ -20,3 +20,16 @@
 .post-meta {
   color: #8A8178 !important;
 }
+
+#pagination .prev-post,
+#pagination .next-post {
+    color: #292724;
+}
+
+.post-copyright {
+  color: #8A8178;
+}
+
+.post-copyright .post-copyright-info a {
+  color: #C85C4A;
+}
