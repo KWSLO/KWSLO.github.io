@@ -118,19 +118,3 @@
 }
 #recent-posts .article-meta__tags:first-of-type { margin-left: auto; }
 
-
-/* 卡片 hover 上浮 */
-#recent-posts > .recent-post-item {
-  transition: transform .3s ease, box-shadow .3s ease !important;
-}
-#recent-posts > .recent-post-item:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 10px 24px rgba(0,0,0,.12) !important;
-}
-
-/* 封面 hover 行为：三选一 */
-/* ① 轻微放大（参考图那种，推荐） */
-#recent-posts > .recent-post-item:hover .post_cover img {
-  transform: scale(1.05) !important;
-}
-/* ② 完全不放大：把上面改成 transform: none !important; */
