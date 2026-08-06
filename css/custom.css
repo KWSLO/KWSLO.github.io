@@ -30,7 +30,6 @@
   overflow: hidden;
   transition: transform .35s cubic-bezier(.2,.7,.3,1.15), box-shadow .35s !important;
 }
-/* 左侧渐变条（磁贴容器靠这条） */
 #recent-posts > .recent-post-item::before {
   content: '';
   position: absolute;
@@ -50,10 +49,10 @@
   position: relative;
   display: flex !important;
   flex-direction: column !important;
-  align-self: stretch !important;   /* 关键：撑满卡片高度，meta 才能沉底 */
-  padding-right: 10px;
+  align-self: stretch !important;
+  padding-top: 32px;      /* 本次修复：标题离顶部留出呼吸 */
+  padding-bottom: 26px;   /* 本次修复：meta 离底部也留呼吸 */
 }
-/* 左侧渐变条（文章卡靠这条） */
 #recent-posts .recent-post-info::before {
   content: '';
   position: absolute;
@@ -62,31 +61,18 @@
   background: linear-gradient(180deg, #7fb8b0, #e0876a);
 }
 
-/* 标题：order 0 */
+/* 标题 */
 #recent-posts .article-title {
   order: 0;
   margin-bottom: 14px;
   font-family: 'Noto Serif SC', 'Songti SC', serif;
-  font-size: 1.25em;      /* 原 1.35 → 收一点，不压版面 */
-  font-weight: 600;       /* 加点分量 */
+  font-size: 1.25em;
+  font-weight: 600;
   letter-spacing: .03em;
   color: #4a8f88;
 }
 
-/* 摘要：order 1，最多 3 行 */
-#recent-posts .recent-post-info .content {
-  order: 1;
-  margin-bottom: 12px;
-  color: #6b665e;
-  font-size: .92em;       /* 比标题小一档 */
-  line-height: 1.7;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-}
-
-/* meta：order 2，沉底，最小最灰 */
+/* meta 沉底 */
 #recent-posts .article-meta-wrap {
   order: 2;
   margin-top: auto;
@@ -100,7 +86,7 @@
 #recent-posts .article-meta-wrap > * { margin-right: 14px; }
 #recent-posts .article-meta-separator { display: none; }
 
-/* 标签胶囊 + 整组靠右 */
+/* 标签胶囊 + 靠右 */
 #recent-posts .article-meta__tags {
   display: inline-block;
   padding: 2px 12px;
@@ -115,7 +101,6 @@
 /* ========== 封面 ========== */
 #recent-posts .post_cover { padding: 12px; }
 #recent-posts .post_cover img { border-radius: 10px; }
-/* hover 时封面彻底静止：把可能的放大目标全部按住 */
 #recent-posts > .recent-post-item:hover img,
 #recent-posts > .recent-post-item:hover .post_cover,
 #recent-posts > .recent-post-item:hover .post_cover img {
