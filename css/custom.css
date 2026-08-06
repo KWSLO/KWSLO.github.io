@@ -115,3 +115,19 @@ li.categoryBar-list-item:hover {
   transform: none !important;
   background-size: cover !important;
 }
+
+/* 加载动画完成后完全隐藏 */
+#loading-box.loaded {
+  visibility: hidden !important;
+  pointer-events: none !important;
+  background: transparent !important;
+}
+
+/* 阅读模式下不管什么状态都隐藏 */
+body.read-mode #loading-box {
+  display: none !important;
+}
+
+html.pl-done #loading-box {
+  display: none !important;
+}

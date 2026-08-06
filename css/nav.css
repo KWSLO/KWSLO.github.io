@@ -9,6 +9,10 @@
     transition: opacity .3s, visibility .3s;
 }
 
+:root {
+  --june: #E76F51;   
+}
+
 /* 向下滚动时：隐藏菜单，显示标题 */
 #nav.nav-show-title .menus_items {
     opacity: 0;
