@@ -84,13 +84,27 @@
   height: 100%;      /* 关键：撑满卡片，auto 边距才有效 */
 }
 #recent-posts .article-meta-wrap {
-  margin-top: auto;
+  margin-top: auto;          /* 沉底 */
+  padding-top: 16px;         /* 和摘要拉开距离 */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding-top: 14px;
+}
+#recent-posts .article-meta-wrap > * {
+  margin-right: 14px;        /* 日期 / 分类 / 图标之间拉开 */
 }
 #recent-posts .article-meta-separator { display: none; }
+
+#recent-posts .recent-post-info {
+  position: relative;
+}
+#recent-posts .recent-post-info::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #7fb8b0, #e0876a);
+}
 
 /* 标签胶囊 + 整组靠右 */
 #recent-posts .article-meta__tags {
@@ -103,3 +117,20 @@
   color: #555;
 }
 #recent-posts .article-meta__tags:first-of-type { margin-left: auto; }
+
+
+/* 卡片 hover 上浮 */
+#recent-posts > .recent-post-item {
+  transition: transform .3s ease, box-shadow .3s ease !important;
+}
+#recent-posts > .recent-post-item:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,.12) !important;
+}
+
+/* 封面 hover 行为：三选一 */
+/* ① 轻微放大（参考图那种，推荐） */
+#recent-posts > .recent-post-item:hover .post_cover img {
+  transform: scale(1.05) !important;
+}
+/* ② 完全不放大：把上面改成 transform: none !important; */
