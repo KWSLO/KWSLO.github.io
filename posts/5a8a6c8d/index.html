@@ -178,7 +178,7 @@
   isHighlightShrink: false,
   isToc: false,
   pageType: 'post'
-}</script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div id="loading-box"><div class="loader-o"><div class="wrapper"><div class="squares"><span class="load-square"></span><span class="load-square"></span></div><p>loading</p></div></div></div><script>(()=>{
+}</script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-category-card-fork@1.0.16/lib/categorybar.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"></head><body><div id="loading-box"><div class="loader-o"><div class="wrapper"><div class="squares"><span class="load-square"></span><span class="load-square"></span></div><p>loading</p></div></div></div><script>(()=>{
   const $loadingBox = document.getElementById('loading-box')
   if (!$loadingBox) return
   
@@ -377,4 +377,20 @@
       window.location.href = responseURL
     }
   })
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.7.0"></script></div></div></body></html>
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.7.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_category_card_fork_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    if (!parent_div_git) {
+      console.warn('butterfly_category_card_fork: 挂载容器不存在，正在动态创建...');
+      parent_div_git = document.createElement('div');
+      parent_div_git.id = 'recent-posts';
+      document.querySelector('#page').prepend(parent_div_git);
+    }
+    var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 380px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 320px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;/categories/AI-Infra/&quot;);" href="javascript:void(0);">AI Infra</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;/categories/AI-Paper/&quot;);" href="javascript:void(0);">AI Paper</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;/categories/Linux/&quot;);" href="javascript:void(0);">Linux</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;/categories/Misc/&quot;);" href="javascript:void(0);">Misc</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li></ul></div></div>';
+    console.log('已挂载 butterfly_category_card_fork');
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+  }
+  if (location.pathname.startsWith('/') || '/' === 'all') {
+    butterfly_category_card_fork_injector_config();
+  }
+  </script><!-- hexo injector body_end end --></body></html>
