@@ -81,6 +81,7 @@
 #recent-posts .recent-post-info {
   display: flex;
   flex-direction: column;
+  height: 100%;      /* 关键：撑满卡片，auto 边距才有效 */
 }
 #recent-posts .article-meta-wrap {
   margin-top: auto;
