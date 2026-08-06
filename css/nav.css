@@ -1,0 +1,204 @@
+/* 一级菜单居中 */
+#nav .menus_items {
+    display: inline-block !important;
+    position: absolute !important;
+    width: fit-content !important;
+    top: 50%;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    transition: opacity .3s, visibility .3s;
+}
+
+/* 向下滚动时：隐藏菜单，显示标题 */
+#nav.nav-show-title .menus_items {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#nav.nav-show-title #name-container {
+    top: 10px;
+}
+
+/* 向上滚动时（默认状态）：显示菜单，隐藏标题 */
+#nav #mask-name-container {
+    z-index: -1;
+    pointer-events: none;
+}
+
+#nav #name-container {
+    top: 60px;
+    display: block;
+}
+
+/* 向下滚动时只让标题本体可交互，避免整层遮罩挡住右侧按钮 */
+#nav.nav-show-title #mask-name-container {
+    z-index: 1;
+    pointer-events: none;
+}
+
+#nav.nav-show-title #name-container,
+#nav.nav-show-title #page-name {
+    pointer-events: auto;
+}
+
+.menus_item_child li:not(#sidebar-menus li){
+    float: left;
+    border-radius: 6px!important;
+    -webkit-border-radius: 6px!important;
+    -moz-border-radius: 6px!important;
+    -ms-border-radius: 6px!important;
+    -o-border-radius: 6px!important;
+}
+
+.menus_item_child:not(#sidebar-menus ul){
+    left:50%;
+    translate:-50%;
+}
+
+#nav .menus_items .menus_item .menus_item_child li a:hover {
+    color: white !important;
+}
+
+/* 网站标题 hover */
+#site-name::before {
+    opacity: 0;
+    background-color: var(--june) !important;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    position: absolute;
+    top: 0 !important;
+    right: 0 !important;
+    z-index: 1 !important;
+    width: 105%;
+    height: 120%;
+    content: "\f015";
+    box-shadow: 0 0 5px var(--june);
+    font-family: "Font Awesome 6 Free";
+    text-align: center;
+    color: white;
+    line-height: 34px;
+    font-size: 18px;
+}
+
+#site-name:hover::before {
+    opacity: 1;
+    scale: 1.03;
+}
+
+/* 确保 site-name 始终在遮罩层之上 */
+#blog_name {
+    pointer-events: none;
+}
+
+#site-name {
+    position: relative;
+    font-size: 24px;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+/* 顶栏常驻 */
+.nav-fixed #nav {
+    transform: translateY(58px) !important;
+    -webkit-transform: translateY(58px) !important;
+    -moz-transform: translateY(58px) !important;
+    -ms-transform: translateY(58px) !important;
+    -o-transform: translateY(58px) !important;
+}
+
+#nav {
+    transition: none !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    padding: 0 20px;
+}
+
+/* 页面标题 hover：显示“回到顶部” */
+#page-name::before {
+    font-size: 18px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    color: white !important;
+    top: 0;
+    left: 0;
+    content: '回到顶部';
+    background-color: var(--june);
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    opacity: 0;
+    box-shadow: 0 0 3px var(--june);
+    line-height: 45px;
+}
+
+#mask-name-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+}
+
+#page-name:hover:before {
+    opacity: 1;
+}
+
+@media screen and (max-width: 900px) {
+    #page-name, #menus {
+        display: none !important;
+    }
+}
+
+#name-container {
+    transition: top .3s;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+}
+
+#name-container:hover {
+    scale: 1.03
+}
+
+#page-name {
+    position: relative;
+    padding: 10px 30px;
+}
+
+#toggleButtons {
+    display: flex;
+    flex:1 1 auto;
+    justify-content: flex-end;
+    flex-basis: 20px;
+}
+
+#toggleButtons .site-page{
+    margin:3px;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
+/* 首页 nav 隐藏一级菜单右侧小箭头 */
+@media screen and (min-width: 768px) {
+    #menus > .menus_items > .menus_item > .group > i.fa-chevron-down {
+        display: none;
+    }
+}
