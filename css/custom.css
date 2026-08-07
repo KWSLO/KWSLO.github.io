@@ -301,7 +301,7 @@ html.pl-done #loading-box{
   content:"博文集合";
   position:absolute;
   top:-15px;
-  left:10px;
+  left:12px;
   font-family:'Noto Serif SC','Songti SC',serif;
   font-size:2em;
   font-weight:700;
@@ -353,4 +353,63 @@ html.pl-done #loading-box{
   height:3px;
   background:#E06A50;
   z-index:20;
+}
+
+
+/* 作者名字 - 高级感样式 */
+#sidebar-menus .author-info-name,
+#aside-content .author-info-name {
+    position: relative;
+    text-align: center;
+    font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 8px;
+    text-indent: 8px;
+    margin: 18px 0 6px;
+    padding-bottom: 8px;
+    background: linear-gradient(120deg, #8b6bb8 0%, #c97bb0 45%, #e3b873 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 4px 10px rgba(139,107,184,.25));
+}
+
+/* 名字下面的小装饰线 */
+#sidebar-menus .author-info-name::after,
+#aside-content .author-info-name::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 2px;
+    margin: 12px auto 0;
+    background: linear-gradient(90deg, transparent, #c97bb0, #e3b873, transparent);
+    border-radius: 20px;
+    opacity: .85;
+}
+
+/* 作者描述 */
+#sidebar-menus .author-info-description,
+#aside-content .author-info-description {
+    text-align: center;
+    font-family: "Noto Serif SC", "Songti SC", serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 1.8;
+    color: #8a8a92;
+    max-width: 260px;
+    margin: 0 auto 18px;
+    padding: 0 12px;
+}
+
+/* aside 单独加强 */
+#aside-content .author-info-name {
+    font-size: 40px;
+    letter-spacing: 10px;
+}
+
+#aside-content .author-info-description {
+    font-size: 15px;
 }

@@ -1,19 +1,25 @@
-@media screen and (max-width:768px){
+/* 手机端导航调整 */
+@media screen and (max-width:900px){
 
-  #menus #nav-right{
-    display:flex!important;
-    position:absolute!important;
-    right:0!important;
-    top:0!important;
-    height:60px!important;
-    align-items:center!important;
-  }
+    /* 保留导航容器 */
+    #nav #menus{
+        display:flex!important;
+        align-items:center;
+    }
 
-  #menus #nav-right #search-button,
-  #menus #nav-right #toggle-menu{
-    display:flex!important;
-    visibility:visible!important;
-    opacity:1!important;
-  }
+
+    /* 隐藏顶部一级菜单 */
+    #nav #menus > .menus_items{
+        display:none!important;
+    }
+
+
+    /* 保留右侧按钮 */
+    #nav #menus #nav-right{
+        display:flex!important;
+        align-items:center;
+        position:static!important;
+        transform:none!important;
+    }
 
 }

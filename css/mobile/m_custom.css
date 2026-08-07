@@ -1,4 +1,17 @@
 @media screen and (max-width:768px){
+#aside-content .card-widget:not(#card-toc){
+  display:none!important;
+}
+
+
+#aside-content{
+  display:block!important;
+}
+
+
+#aside-content #card-toc{
+  display:block!important;
+}
 
 #recent-posts{
   padding-left:24px!important;
@@ -111,3 +124,4 @@
 }
 
 }
+

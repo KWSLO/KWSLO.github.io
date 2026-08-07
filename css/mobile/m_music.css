@@ -1,0 +1,5 @@
+@media screen and (max-width:768px){
+    .aplayer-body {
+        display:none!important;
+    }
+}

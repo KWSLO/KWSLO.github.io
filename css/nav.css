@@ -1,12 +1,16 @@
-/* 一级菜单居中 */
-#nav .menus_items {
-    display: inline-block !important;
-    position: absolute !important;
-    width: fit-content !important;
-    top: 50%;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    transition: opacity .3s, visibility .3s;
+/* 一级菜单居中（仅电脑端） */
+@media screen and (min-width:901px){
+
+    #nav .menus_items {
+        display: inline-block !important;
+        position: absolute !important;
+        width: fit-content !important;
+        top: 50%;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        transition: opacity .3s, visibility .3s;
+    }
+
 }
 
 :root {
@@ -163,12 +167,6 @@
     opacity: 1;
 }
 
-@media screen and (max-width: 900px) {
-    #page-name, #menus {
-        display: none !important;
-    }
-}
-
 #name-container {
     transition: top .3s;
     position: absolute;
@@ -200,9 +198,18 @@
     white-space: nowrap;
 }
 
-/* 首页 nav 隐藏一级菜单右侧小箭头 */
-@media screen and (min-width: 768px) {
-    #menus > .menus_items > .menus_item > .group > i.fa-chevron-down {
-        display: none;
+@media screen and (max-width:900px){
+
+    #nav #menus > .menus_items{
+        display:none!important;
     }
+
+
+    #nav #menus #nav-right{
+        display:flex!important;
+        align-items:center!important;
+        position:static!important;
+        transform:none!important;
+    }
+
 }
