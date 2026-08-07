@@ -429,3 +429,11 @@ html.pl-done #loading-box{
     line-height: 1.8;
   }
 }
+
+/* 手机端适配：正文与页面边距 */
+@media screen and (max-width: 768px) {
+  #article-container,
+  #page .page-content {
+    padding: 20px 16px; /* 上下20px，左右16px */
+  }
+}
