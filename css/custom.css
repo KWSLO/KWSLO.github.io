@@ -446,3 +446,9 @@ html.pl-done #loading-box{
     margin-top: 0 !important;
   }
 }
+
+#site-title img{
+    height:55px;
+    width:auto;
+    transform:scale(1.15);
+}
