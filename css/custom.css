@@ -414,7 +414,9 @@ html.pl-done #loading-box{
     font-size: 15px;
 }
 
+/* 文章正文 + 页面正文 */
+#article-container,
 #page .page-content {
-    font-size: 17px;
-    line-height: 2.2;
+    font-size: 18px;
+    line-height: 2;
 }
