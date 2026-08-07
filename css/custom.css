@@ -429,11 +429,20 @@ html.pl-done #loading-box{
     line-height: 1.8;
   }
 }
-
-/* 手机端适配：正文与页面边距 */
 @media screen and (max-width: 768px) {
-  #article-container,
-  #page .page-content {
-    padding: 20px 16px; /* 上下20px，左右16px */
+  #content-inner {
+    padding: 20px 14px !important;  /* 上下保持20px，左右 5px → 14px */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* 页面容器顶部内边距 */
+  #page {
+    padding-top: 8px !important;
+  }
+
+  /* 正文卡片自己的顶部外边距 */
+  #article-container {
+    margin-top: 0 !important;
   }
 }
