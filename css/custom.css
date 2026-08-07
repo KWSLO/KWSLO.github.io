@@ -1,133 +1,287 @@
-/* ========== 全局 ========== */
-:root {
-  --font-color: #292724;
+:root{
+  --font-color:#292724;
+  --card-bg:rgba(250,248,242,.82);
 }
 
-/* ========== 上一篇 / 下一篇 ========== */
+
+/* 上一篇 / 下一篇 */
 #pagination .prev-post,
-#pagination .next-post { background: #E76F51 !important; }
+#pagination .next-post{
+  background:#E76F51!important;
+}
+
 #pagination .prev-post:hover,
-#pagination .next-post:hover { background: #C9553D !important; }
-#pagination a { color: #fff !important; }
-
-/* ========== 文章版权 ========== */
-.post-copyright { background: #F8EFE8 !important; border-color: #E7DED5 !important; }
-.post-copyright .post-copyright-meta { color: #E76F51 !important; }
-
-/* ========== 分享按钮 ========== */
-.share-button { border-color: #E76F51 !important; }
-.share-button:hover { background: #E76F51 !important; color: white !important; }
-
-/* ========== 右侧浮动按钮 ========== */
-#rightside > div button { background: #E76F51 !important; color: white !important; }
-#rightside > div button:hover { background: #C9553D !important; }
-
-/* ========== 首页文章卡片外壳 ========== */
-#recent-posts > .recent-post-item {
-  border-radius: 14px !important;
-  box-shadow: 0 4px 14px rgba(0,0,0,.08) !important;
-  position: relative;
-  overflow: hidden;
-  transition: transform .3s, box-shadow .3s;
-}
-#recent-posts > .recent-post-item:hover {
-  transform: translateY(-8px) !important;
-  box-shadow: 0 16px 32px rgba(0,0,0,.18) !important; /* 想更明显改 .22 */
+#pagination .next-post:hover{
+  background:#C9553D!important;
 }
 
-/* 卡片左侧渐变条（含磁贴外壳卡） */
-#recent-posts > .recent-post-item::before {
-  content: '' !important;
-  display: block !important;
-  position: absolute !important;
-  left: 0 !important; top: 0 !important; height: 100% !important;
-  width: 4px !important;
-  background: linear-gradient(180deg, #7fb8b0, #e0876a) !important;
-  z-index: 5 !important;
+#pagination a{
+  color:#fff!important;
 }
 
-/* 封面内缩圆角，关掉主题自带放大 */
-#recent-posts .post_cover { padding: 12px; }
-#recent-posts .post_cover img {
-  border-radius: 10px;
-  transform: none !important;
+
+/* 文章版权 */
+.post-copyright{
+  background:#F8EFE8!important;
+  border-color:#E7DED5!important;
 }
 
-/* 标题：渐变文字 */
-#recent-posts .article-title { margin-top: -5px; }
+.post-copyright .post-copyright-meta{
+  color:#E76F51!important;
+}
+
+
+/* 分享按钮 */
+.share-button{
+  border-color:#E76F51!important;
+}
+
+.share-button:hover{
+  background:#E76F51!important;
+  color:white!important;
+}
+
+
+/* 右侧按钮 */
+#rightside>div button{
+  background:#E76F51!important;
+  color:white!important;
+}
+
+#rightside>div button:hover{
+  background:#C9553D!important;
+}
+
+
+
+/* 首页文章卡片 */
+#recent-posts .recent-post-items .recent-post-item{
+  transition:
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    box-shadow .35s ease!important;
+  will-change:transform;
+}
+
+#recent-posts .recent-post-items .recent-post-item:hover{
+  transform:translate3d(0,-8px,0)!important;
+  box-shadow:0 22px 45px rgba(0,0,0,.18)!important;
+  z-index:10!important;
+}
+
+
+
+/* 首页文章缩略图 */
+#recent-posts .post_cover{
+  position:absolute!important;
+
+  right:24px!important;
+  top:24px!important;
+
+  width:40%!important;
+  height:200px!important;
+
+  border-radius:14px!important;
+  overflow:hidden;
+
+  z-index:1;
+}
+
+
+#recent-posts .post_cover img{
+  width:100%!important;
+  height:100%!important;
+
+  object-fit:cover!important;
+
+  border-radius:14px!important;
+
+  transform:none!important;
+  transition:none!important;
+}
+
+
+/* 文字区域 */
+#recent-posts .recent-post-info{
+  width:68%!important;
+
+  position:relative;
+  z-index:2;
+}
+
+
+/* 卡片高度 */
+#recent-posts>.recent-post-item{
+  min-height:320px;
+}
+
+
+#recent-posts .recent-post-item:hover .post_cover img{
+  transform:none!important;
+}
+
+
+
+/* 文字层 */
+#recent-posts .recent-post-info{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  transform:none!important;
+}
+
+
+#recent-posts .recent-post-item:hover .recent-post-info{
+  transform:none!important;
+}
+
+
+
+/* 标题 */
+#recent-posts .article-title{
+  margin-top:-5px;
+}
+
+
 #recent-posts .article-title,
-#recent-posts .article-title a {
-  font-family: 'Noto Serif SC', 'Songti SC', serif;
-  font-size: 1.55em;
-  font-weight: 700;
-  letter-spacing: .03em;
-  color: #E76F51; /* 兜底纯色 */
-  background: linear-gradient(90deg, #E76F51 0%, #e0876a 55%, #4a8f88 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+#recent-posts .article-title a{
+  font-family:'Noto Serif SC','Songti SC',serif;
+  font-size:1.55em;
+  font-weight:700;
+  letter-spacing:.03em;
+  color:#E76F51;
+
+  background:linear-gradient(
+    90deg,
+    #E76F51 0%,
+    #e0876a 55%,
+    #4a8f88 100%
+  );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-/* 信息列：标题 → 摘要 → meta 沉底（order 是关键） */
-#recent-posts .recent-post-info { display: flex; flex-direction: column; }
-#recent-posts .content {
-  order: 2;
-  font-size: 1.15em;
-  line-height: 2;
-  color: #6b645c;
-  margin-top: 15px;
-}
-#recent-posts .article-meta-wrap {
-  order: 3;
-  margin-top: auto;          /* 沉底 */
-  padding-top: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 15px;
-}
-#recent-posts .article-meta-separator { display: none !important; }
 
-/* 标签胶囊 + 整组靠右 */
-#recent-posts .article-meta__tags {
-  display: inline-block;
-  padding: 2px 12px;
-  border: 1px solid #c8c8c8;
-  border-radius: 6px;
-  font-size: .85em;
-  color: #555;
-}
-#recent-posts .article-meta__tags:first-of-type { margin-left: auto; }
 
-/* ========== 磁贴（自己不抬升，统一由外壳卡片上浮） ========== */
-li.categoryBar-list-item {
-  position: relative;
-  transition: box-shadow .3s ease;
-  box-shadow: inset 50px 50px 50px 50px rgba(50,50,50,0.3),
-              0 4px 14px rgba(0,0,0,.15) !important;
-}
-li.categoryBar-list-item:hover {
-  box-shadow: inset 500px 50px 50px 50px rgba(50,50,50,0.6),
-              0 4px 14px rgba(0,0,0,.15) !important;
-}
-li.categoryBar-list-item,
-li.categoryBar-list-item:hover {
-  transform: none !important;
-  background-size: cover !important;
+/* 摘要 */
+#recent-posts .content{
+  order:2;
+  font-size:1.15em;
+  line-height:2;
+  color:#6b645c;
+  margin-top:15px;
 }
 
-/* 加载动画完成后完全隐藏 */
-#loading-box.loaded {
-  visibility: hidden !important;
-  pointer-events: none !important;
-  background: transparent !important;
+
+
+/* meta */
+#recent-posts .article-meta-wrap{
+  order:3;
+  margin-top:auto;
+  padding-top:14px;
+
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:15px;
 }
 
-/* 阅读模式下不管什么状态都隐藏 */
-body.read-mode #loading-box {
-  display: none !important;
+
+#recent-posts .article-meta-separator{
+  display:none!important;
 }
 
-html.pl-done #loading-box {
-  display: none !important;
+
+#recent-posts .article-meta__tags{
+  display:inline-block;
+
+  padding:2px 12px;
+
+  border:1px solid #c8c8c8;
+  border-radius:6px;
+
+  font-size:.85em;
+  color:#555;
+}
+
+
+#recent-posts .article-meta__tags:first-of-type{
+  margin-left:auto;
+}
+
+
+
+/* 分类大框 */
+#categoryBar .card-widget{
+  background:rgba(250,248,242,.82)!important;
+
+  box-shadow:0 8px 25px rgba(0,0,0,.12)!important;
+
+  border-radius:20px!important;
+
+  backdrop-filter:blur(8px);
+}
+
+
+
+/* 分类磁贴 */
+.categoryBar-list{
+  gap:18px!important;
+}
+
+
+li.categoryBar-list-item{
+  margin:0!important;
+
+  border-radius:16px!important;
+
+  overflow:hidden;
+
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+
+li.categoryBar-list-item:hover{
+  transform:translate3d(0,-3px,0)!important;
+
+  box-shadow:
+    0 12px 24px rgba(0,0,0,.18)!important;
+}
+
+
+
+/* 加载动画隐藏 */
+#loading-box.loaded{
+  visibility:hidden!important;
+  pointer-events:none!important;
+  background:transparent!important;
+}
+
+
+body.read-mode #loading-box{
+  display:none;
+}
+
+
+html.pl-done #loading-box{
+  display:none;
+}
+
+/* 首页文章卡片整体可点击 */
+#recent-posts .recent-post-item{
+  cursor:pointer;
+}
+
+
+#recent-posts .recent-post-item .post_cover,
+#recent-posts .recent-post-item .article-title,
+#recent-posts .recent-post-item .article-meta-wrap{
+  position:relative;
+  z-index:11;
 }
