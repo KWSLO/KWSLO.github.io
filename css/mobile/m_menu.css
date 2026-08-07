@@ -1,0 +1,19 @@
+@media screen and (max-width:768px){
+
+  #menus #nav-right{
+    display:flex!important;
+    position:absolute!important;
+    right:0!important;
+    top:0!important;
+    height:60px!important;
+    align-items:center!important;
+  }
+
+  #menus #nav-right #search-button,
+  #menus #nav-right #toggle-menu{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+  }
+
+}
