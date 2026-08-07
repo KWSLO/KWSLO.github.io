@@ -414,9 +414,18 @@ html.pl-done #loading-box{
     font-size: 15px;
 }
 
-/* 文章正文 + 页面正文 */
+/* 桌面端保持原样 */
 #article-container,
 #page .page-content {
-    font-size: 18px;
-    line-height: 2;
+  font-size: 18px;
+  line-height: 2;
+}
+
+/* 手机端适配：屏幕宽度 ≤ 768px 时生效 */
+@media screen and (max-width: 768px) {
+  #article-container,
+  #page .page-content {
+    font-size: 16px;
+    line-height: 1.8;
+  }
 }
