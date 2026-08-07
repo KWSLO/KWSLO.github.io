@@ -285,3 +285,72 @@ html.pl-done #loading-box{
   position:relative;
   z-index:11;
 }
+/* 首页标题 */
+.recent-posts.nc,
+#recent-posts .recent-post-items{
+  position:relative;
+}
+
+
+.recent-posts.nc{
+  padding-top:42px;
+}
+
+
+.recent-posts.nc::before{
+  content:"博文集合";
+  position:absolute;
+  top:-15px;
+  left:10px;
+  font-family:'Noto Serif SC','Songti SC',serif;
+  font-size:2em;
+  font-weight:700;
+  letter-spacing:.08em;
+  color:#f6ae51;
+  text-shadow:0 2px 8px rgba(0,0,0,.35);
+  z-index:20;
+}
+
+
+.recent-posts.nc::after{
+  content:"";
+  position:absolute;
+  top:29px;
+  left:10px;
+  width:45px;
+  height:3px;
+  background:#E06A50;
+  z-index:20;
+}
+
+
+#recent-posts .recent-post-items{
+  padding-top:42px;
+}
+
+
+#recent-posts .recent-post-items::before{
+  content:"近期文章";
+  position:absolute;
+  top:-15px;
+  left:10px;
+  font-family:'Noto Serif SC','Songti SC',serif;
+  font-size:2em;
+  font-weight:700;
+  letter-spacing:.08em;
+  color:#f6ae51;
+  text-shadow:0 2px 8px rgba(0,0,0,.35);
+  z-index:20;
+}
+
+
+#recent-posts .recent-post-items::after{
+  content:"";
+  position:absolute;
+  top:29px;
+  left:10px;
+  width:45px;
+  height:3px;
+  background:#E06A50;
+  z-index:20;
+}
