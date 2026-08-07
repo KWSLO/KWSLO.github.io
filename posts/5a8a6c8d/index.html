@@ -244,8 +244,8 @@
     checkAndClose()
   }
 
-  // 最少显示 800 毫秒（让动画看起来连贯，不闪屏）
-  setTimeout(() => { isTimeUp = true; checkAndClose() }, 2000)
+  // 最少显示 4000 毫秒（让动画看起来连贯，不闪屏）
+  setTimeout(() => { isTimeUp = true; checkAndClose() }, 4000)
   
   if (document.readyState === 'complete') {
     onPageReady()
