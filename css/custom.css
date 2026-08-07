@@ -413,3 +413,8 @@ html.pl-done #loading-box{
 #aside-content .author-info-description {
     font-size: 15px;
 }
+
+#page .page-content {
+    font-size: 17px;
+    line-height: 2.2;
+}
