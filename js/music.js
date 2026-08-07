@@ -12,6 +12,7 @@
         meting.setAttribute('type', 'playlist')
         meting.setAttribute('id', '12595519825')
         meting.setAttribute('fixed', 'true')
+        meting.setAttribute('lrc', '0')
 
         box.appendChild(meting)
     }
