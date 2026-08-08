@@ -1,0 +1,13 @@
+#article-container img {
+  display: block;
+  max-width: 75%;          
+  margin: 1.5rem auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / .25);
+}
+
+#article-container .img-alt {
+  text-align: center;
+  font-size: .85em;
+  color: #999;
+}
