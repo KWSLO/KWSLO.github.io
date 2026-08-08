@@ -1,448 +1,334 @@
 :root{
-  --font-color:#292724;
-  --card-bg:rgba(250,248,242,.82);
+--font-color:#292724;
+--card-bg:rgba(250,248,242,.82);
 }
-
-
 /* 上一篇 / 下一篇 */
 #pagination .prev-post,
 #pagination .next-post{
-  background:#E76F51!important;
+background:#E76F51!important;
 }
-
 #pagination .prev-post:hover,
 #pagination .next-post:hover{
-  background:#C9553D!important;
+color:#fff!important;
 }
-
 #pagination a{
-  color:#fff!important;
+color:#fff!important;
 }
-
-
 /* 文章版权 */
 .post-copyright{
-  background:#F8EFE8!important;
-  border-color:#E7DED5!important;
+background:#F8EFE8!important;
+border-color:#E7DED5!important;
 }
-
 .post-copyright .post-copyright-meta{
-  color:#E76F51!important;
+color:#E76F51!important;
 }
-
-
 /* 分享按钮 */
 .share-button{
-  border-color:#E76F51!important;
+border-color:#E76F51!important;
 }
-
 .share-button:hover{
-  background:#E76F51!important;
-  color:white!important;
+background:#E76F51!important;
+color:white!important;
 }
-
-
 /* 右侧按钮 */
 #rightside>div button{
-  background:#E76F51!important;
-  color:white!important;
+background:#E76F51!important;
+color:white!important;
 }
-
 #rightside>div button:hover{
-  background:#C9553D!important;
+background:#d85c42!important;
 }
-
-
-
 /* 首页文章卡片 */
 #recent-posts .recent-post-items .recent-post-item{
-  transition:
-    transform .35s cubic-bezier(.2,.8,.2,1),
-    box-shadow .35s ease!important;
-  will-change:transform;
+transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease!important;
+will-change:transform;
 }
-
 #recent-posts .recent-post-items .recent-post-item:hover{
-  transform:translate3d(0,-8px,0)!important;
-  box-shadow:0 22px 45px rgba(0,0,0,.18)!important;
-  z-index:10!important;
+transform:translate3d(0,-8px,0)!important;
+box-shadow:0 22px 45px rgba(0,0,0,.18)!important;
+z-index:10!important;
 }
-
-
-
 /* 首页文章缩略图 */
 #recent-posts .post_cover{
-  position:absolute!important;
-
-  right:24px!important;
-  top:24px!important;
-
-  width:40%!important;
-  height:200px!important;
-
-  border-radius:14px!important;
-  overflow:hidden;
-
-  z-index:1;
+position:absolute!important;
+right:24px!important;
+top:24px!important;
+width:38%!important;
+height:200px!important;
+border-radius:14px!important;
+overflow:hidden;
+z-index:1;
 }
-
-
 #recent-posts .post_cover img{
-  width:100%!important;
-  height:100%!important;
-
-  object-fit:cover!important;
-
-  border-radius:14px!important;
-
-  transform:none!important;
-  transition:none!important;
+width:100%!important;
+height:100%!important;
+object-fit:cover!important;
+border-radius:14px!important;
+transform:none!important;
+transition:none!important;
 }
-
-
 /* 文字区域 */
 #recent-posts .recent-post-info{
-  width:68%!important;
-
-  position:relative;
-  z-index:2;
+width:57%!important;
+position:relative;
+z-index:2;
+display:flex;
+flex-direction:column;
+transform:none!important;
 }
-
-
+#recent-posts .recent-post-item:hover .recent-post-info{
+transform:none!important;
+}
 /* 卡片高度 */
 #recent-posts>.recent-post-item{
-  min-height:320px;
+min-height:320px;
 }
-
-
-#recent-posts .recent-post-item:hover .post_cover img{
-  transform:none!important;
+/* 防止图片定位被覆盖 */
+#recent-posts .recent-post-item .post_cover{
+position:absolute!important;
+z-index:11;
 }
-
-
-
-/* 文字层 */
-#recent-posts .recent-post-info{
-  position:relative;
-  z-index:2;
-  display:flex;
-  flex-direction:column;
-  transform:none!important;
-}
-
-
-#recent-posts .recent-post-item:hover .recent-post-info{
-  transform:none!important;
-}
-
-
-
-/* 标题 */
-#recent-posts .article-title{
-  margin-top:-5px;
-}
-
-
-#recent-posts .article-title,
-#recent-posts .article-title a{
-  font-family:'Noto Serif SC','Songti SC',serif;
-  font-size:1.55em;
-  font-weight:700;
-  letter-spacing:.03em;
-  color:#E76F51;
-
-  background:linear-gradient(
-    90deg,
-    #E76F51 0%,
-    #e0876a 55%,
-    #4a8f88 100%
-  );
-
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-
-
-/* 摘要 */
-#recent-posts .content{
-  order:2;
-  font-size:1.15em;
-  line-height:2;
-  color:#6b645c;
-  margin-top:15px;
-}
-
-
-
-/* meta */
-#recent-posts .article-meta-wrap{
-  order:3;
-  margin-top:auto;
-  padding-top:14px;
-
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:15px;
-}
-
-
-#recent-posts .article-meta-separator{
-  display:none!important;
-}
-
-
-#recent-posts .article-meta__tags{
-  display:inline-block;
-
-  padding:2px 12px;
-
-  border:1px solid #c8c8c8;
-  border-radius:6px;
-
-  font-size:.85em;
-  color:#555;
-}
-
-
-#recent-posts .article-meta__tags:first-of-type{
-  margin-left:auto;
-}
-
-
-
-/* 分类大框 */
-#categoryBar .card-widget{
-  background:rgba(250,248,242,.82)!important;
-
-  box-shadow:0 8px 25px rgba(0,0,0,.12)!important;
-
-  border-radius:20px!important;
-
-  backdrop-filter:blur(8px);
-}
-
-
-
-/* 分类磁贴 */
-.categoryBar-list{
-  gap:18px!important;
-}
-
-
-li.categoryBar-list-item{
-  margin:0!important;
-
-  border-radius:16px!important;
-
-  overflow:hidden;
-
-  box-shadow:0 6px 16px rgba(0,0,0,.12);
-
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease;
-}
-
-
-li.categoryBar-list-item:hover{
-  transform:translate3d(0,-3px,0)!important;
-
-  box-shadow:
-    0 12px 24px rgba(0,0,0,.18)!important;
-}
-
-
-
-/* 加载动画隐藏 */
-#loading-box.loaded{
-  visibility:hidden!important;
-  pointer-events:none!important;
-  background:transparent!important;
-}
-
-
-body.read-mode #loading-box{
-  display:none;
-}
-
-
-html.pl-done #loading-box{
-  display:none;
-}
-
-/* 首页文章卡片整体可点击 */
-#recent-posts .recent-post-item{
-  cursor:pointer;
-}
-
-
-#recent-posts .recent-post-item .post_cover,
 #recent-posts .recent-post-item .article-title,
 #recent-posts .recent-post-item .article-meta-wrap{
-  position:relative;
-  z-index:11;
+position:relative;
+z-index:11;
+}
+/* 标题 */
+#recent-posts .article-title{
+margin-top:-5px;
+}
+#recent-posts .article-title,
+#recent-posts .article-title a{
+font-family:'Noto Serif SC','Songti SC',serif;
+font-size:1.55em;
+font-weight:700;
+letter-spacing:.03em;
+color:#E76F51;
+background:linear-gradient(90deg,#E76F51 0%,#e0876a 55%,#4a8f88 100%);
+-webkit-background-clip:text;
+background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+/* 摘要 */
+#recent-posts .content{
+order:2;
+font-size:1.15em;
+line-height:2;
+color:#6b645c;
+margin-top:15px;
+overflow:hidden;
+}
+/* meta */
+#recent-posts .article-meta-wrap{
+order:3;
+margin-top:auto;
+padding-top:14px;
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+gap:15px;
+}
+#recent-posts .article-meta-separator{
+display:none!important;
+}
+#recent-posts .article-meta__tags{
+display:inline-block;
+padding:2px 12px;
+border:1px solid #c8c8c8;
+border-radius:6px;
+font-size:.85em;
+color:#555;
+}
+#recent-posts .article-meta__tags:first-of-type{
+margin-left:auto;
+}
+/* 分类大框 */
+#categoryBar .card-widget{
+background:rgba(250,248,242,.82)!important;
+box-shadow:0 8px 25px rgba(0,0,0,.12)!important;
+border-radius:20px!important;
+backdrop-filter:blur(8px);
+}
+/* 分类磁贴 */
+.categoryBar-list{
+gap:18px!important;
+}
+li.categoryBar-list-item{
+margin:0!important;
+border-radius:16px!important;
+overflow:hidden;
+box-shadow:0 6px 16px rgba(0,0,0,.12);
+transition:transform .3s ease,box-shadow .3s ease;
+}
+li.categoryBar-list-item:hover{
+transform:translate3d(0,-3px,0)!important;
+box-shadow:0 12px 24px rgba(0,0,0,.18)!important;
+}
+/* 加载动画隐藏 */
+#loading-box.loaded{
+visibility:hidden!important;
+pointer-events:none!important;
+background:transparent!important;
+}
+body.read-mode #loading-box{
+display:none;
+}
+html.pl-done #loading-box{
+display:none;
+}
+/* 首页文章卡片整体可点击 */
+#recent-posts .recent-post-item{
+cursor:pointer;
 }
 /* 首页标题 */
 .recent-posts.nc,
 #recent-posts .recent-post-items{
-  position:relative;
+position:relative;
 }
-
-
 .recent-posts.nc{
-  padding-top:42px;
+padding-top:42px;
 }
-
-
 .recent-posts.nc::before{
-  content:"博文集合";
-  position:absolute;
-  top:-15px;
-  left:12px;
-  font-family:'Noto Serif SC','Songti SC',serif;
-  font-size:2em;
-  font-weight:700;
-  letter-spacing:.08em;
-  color:#f6ae51;
-  text-shadow:0 2px 8px rgba(0,0,0,.35);
-  z-index:20;
+content:"博文集合";
+position:absolute;
+top:-15px;
+left:12px;
+font-family:'Noto Serif SC','Songti SC',serif;
+font-size:2em;
+font-weight:700;
+letter-spacing:.08em;
+color:#f6ae51;
+text-shadow:0 2px 8px rgba(0,0,0,.35);
+z-index:20;
 }
-
-
 .recent-posts.nc::after{
-  content:"";
-  position:absolute;
-  top:29px;
-  left:10px;
-  width:45px;
-  height:3px;
-  background:#E06A50;
-  z-index:20;
+content:"";
+position:absolute;
+top:29px;
+left:10px;
+width:45px;
+height:3px;
+background:#E06A50;
+z-index:20;
 }
-
-
 #recent-posts .recent-post-items{
-  padding-top:42px;
+padding-top:42px;
 }
-
-
 #recent-posts .recent-post-items::before{
-  content:"近期文章";
-  position:absolute;
-  top:-15px;
-  left:10px;
-  font-family:'Noto Serif SC','Songti SC',serif;
-  font-size:2em;
-  font-weight:700;
-  letter-spacing:.08em;
-  color:#f6ae51;
-  text-shadow:0 2px 8px rgba(0,0,0,.35);
-  z-index:20;
+content:"近期文章";
+position:absolute;
+top:-15px;
+left:10px;
+font-family:'Noto Serif SC','Songti SC',serif;
+font-size:2em;
+font-weight:700;
+letter-spacing:.08em;
+color:#f6ae51;
+text-shadow:0 2px-8px rgba(0,0,0,.35);
+z-index:20;
 }
-
-
 #recent-posts .recent-post-items::after{
-  content:"";
-  position:absolute;
-  top:29px;
-  left:10px;
-  width:45px;
-  height:3px;
-  background:#E06A50;
-  z-index:20;
+content:"";
+position:absolute;
+top:29px;
+left:10px;
+width:45px;
+height:3px;
+background:#E06A50;
+z-index:20;
 }
-
 
 /* 作者名字 - 高级感样式 */
 #sidebar-menus .author-info-name,
-#aside-content .author-info-name {
-    position: relative;
-    text-align: center;
-    font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: 8px;
-    text-indent: 8px;
-    margin: 18px 0 6px;
-    padding-bottom: 8px;
-    background: linear-gradient(120deg, #8b6bb8 0%, #c97bb0 45%, #e3b873 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    filter: drop-shadow(0 4px 10px rgba(139,107,184,.25));
+#aside-content .author-info-name{
+position:relative;
+text-align:center;
+font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;
+font-size:28px;
+font-weight:600;
+letter-spacing:8px;
+text-indent:8px;
+margin:18px 0 6px;
+padding-bottom:8px;
+background:linear-gradient(120deg,#8b6bb8 0%,#c97bb0 45%,#e3b873 100%);
+-webkit-background-clip:text;
+background-clip:text;
+-webkit-text-fill-color:transparent;
+color:transparent;
+filter:drop-shadow(0 4px 10px rgba(139,107,184,.25));
 }
-
 /* 名字下面的小装饰线 */
 #sidebar-menus .author-info-name::after,
-#aside-content .author-info-name::after {
-    content: "";
-    display: block;
-    width: 55px;
-    height: 2px;
-    margin: 12px auto 0;
-    background: linear-gradient(90deg, transparent, #c97bb0, #e3b873, transparent);
-    border-radius: 20px;
-    opacity: .85;
+#aside-content .author-info-name::after{
+content:"";
+display:block;
+width:55px;
+height:2px;
+margin:12px auto 0;
+background:linear-gradient(90deg,transparent,#c97bb0,#e3b873,transparent);
+border-radius:20px;
+opacity:.85;
 }
-
 /* 作者描述 */
 #sidebar-menus .author-info-description,
-#aside-content .author-info-description {
-    text-align: center;
-    font-family: "Noto Serif SC", "Songti SC", serif;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    line-height: 1.8;
-    color: #8a8a92;
-    max-width: 260px;
-    margin: 0 auto 18px;
-    padding: 0 12px;
+#aside-content .author-info-description{
+text-align:center;
+font-family:"Noto Serif SC","Songti SC",serif;
+font-size:14px;
+font-weight:400;
+letter-spacing:1px;
+line-height:1.8;
+color:#8a8a92;
+max-width:260px;
+margin:0 auto 18px;
+padding:0 12px;
 }
-
 /* aside 单独加强 */
-#aside-content .author-info-name {
-    font-size: 40px;
-    letter-spacing: 10px;
+#aside-content .author-info-name{
+font-size:40px;
+letter-spacing:10px;
 }
-
-#aside-content .author-info-description {
-    font-size: 15px;
+#aside-content .author-info-description{
+font-size:15px;
 }
-
-/* 桌面端保持原样 */
+/* 桌面端正文 */
 #article-container,
-#page .page-content {
-  font-size: 18px;
-  line-height: 2;
+#page .page-content{
+font-size:18px;
+line-height:2;
 }
-
-/* 手机端适配：屏幕宽度 ≤ 768px 时生效 */
-@media screen and (max-width: 768px) {
-  #article-container,
-  #page .page-content {
-    font-size: 16px;
-    line-height: 1.8;
-  }
+/* 手机端适配 */
+@media screen and (max-width:768px){
+#article-container,
+#page .page-content{
+font-size:16px;
+line-height:1.8;
 }
-@media screen and (max-width: 768px) {
-  #content-inner {
-    padding: 20px 14px !important;  /* 上下保持20px，左右 5px → 14px */
-  }
+#content-inner{
+padding:20px 14px!important;
 }
-
-@media screen and (max-width: 768px) {
-  /* 页面容器顶部内边距 */
-  #page {
-    padding-top: 8px !important;
-  }
-
-  /* 正文卡片自己的顶部外边距 */
-  #article-container {
-    margin-top: 0 !important;
-  }
+#page{
+padding-top:8px!important;
+}
+#article-container{
+margin-top:0!important;
+}
+/* 手机端文章卡片恢复单列 */
+#recent-posts .recent-post-info{
+width:100%!important;
+}
+#recent-posts .post_cover{
+position:relative!important;
+right:auto!important;
+top:auto!important;
+width:100%!important;
+height:180px!important;
+margin-top:20px;
+}
+#recent-posts .recent-post-item{
+min-height:auto!important;
+}
+#recent-posts .content{
+max-width:100%;
+}
 }
