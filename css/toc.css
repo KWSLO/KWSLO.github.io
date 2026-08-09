@@ -1,91 +1,66 @@
 /* ===========================
-Butterfly 三栏布局
-仅文章页
-avatar | post | toc
-=========================== */
+   Butterfly 三栏布局（仅文章页生效）
+   avatar | post | toc
+   =========================== */
 
 @media screen and (min-width:1401px){
 
-    body.post #content-inner{
-        display:grid;
-        grid-template-columns:1fr min(1200px, calc(100vw - 780px)) 1fr;
-        column-gap:24px;
-        align-items:start;
-        width:100%;
-        max-width:none;
-        padding:40px 50px 0;
-    }
+  /* 开关：内容区含 #post（文章页）才启用 grid */
+  #content-inner:has(#post){
+    display:grid;
+    grid-template-columns:1fr min(1200px, calc(100vw - 780px)) 1fr;
+    column-gap:24px;
+    align-items:start;
+    width:100%;
+    max-width:none;
+    padding:40px 50px 0;
+  }
 
-    body.post #aside-content{
-        display:contents;
-    }
+  #content-inner:has(#post) #aside-content{
+    display:contents;
+  }
 
-    /* 正文 */
-    body.post #post{
-        grid-column:2;
-        grid-row:1;
-        width:100%;
-        margin:0;
-    }
+  #content-inner:has(#post) #post{
+    grid-column:2;
+    grid-row:1;
+    width:100%;
+    margin:0;
+  }
 
-    /* 头像卡 */
-    body.post #aside-content .card-info{
-        grid-column:1;
-        grid-row:1;
-        justify-self:start;
-        width:289.198px;
-        position:sticky;
-        top:90px;
-    }
+  /* 头像卡 */
+  #content-inner:has(#post) .card-info{
+    grid-column:1;
+    grid-row:1;
+    justify-self:start;
+    width:289.198px;
+    position:sticky;
+    top:90px;
+  }
 
-    body.post #aside-content .card-info .avatar-img,
-    body.post #aside-content .card-info img{
-        width:110px;
-        height:110px;
-    }
+  #content-inner:has(#post) .card-info img{
+    width:110px;
+    height:110px;
+  }
 
-    /* 目录 */
-    body.post #aside-content .sticky_layout{
-        grid-column:3;
-        grid-row:1;
-        justify-self:end;
-        width:100%;
-        max-width:300px;
-        position:sticky;
-        top:90px;
-    }
+  /* 目录 */
+  #content-inner:has(#post) .sticky_layout{
+    grid-column:3;
+    grid-row:1;
+    justify-self:end;
+    width:100%;
+    max-width:300px;
+    position:sticky;
+    top:90px;
+  }
 
-    body.post #aside-content #card-toc{
-        width:100%;
-        max-height:calc(100vh - 100px);
-        overflow-y:auto;
-    }
+  #content-inner:has(#post) #card-toc{
+    width:100%;
+    max-height:calc(100vh - 100px);
+    overflow-y:auto;
+    scrollbar-width:none;
+  }
 
-    body.post #card-toc::-webkit-scrollbar{
-        display:none;
-    }
-}
-
-
-/* 小屏恢复 Butterfly 默认 */
-@media screen and (max-width:1400px){
-
-    body.post #content-inner{
-        display:block;
-        padding:0;
-    }
-
-    body.post #aside-content{
-        display:block;
-    }
-
-    body.post #post{
-        width:100%;
-    }
-
-    body.post #aside-content .card-info,
-    body.post #aside-content .sticky_layout{
-        position:static;
-        width:auto;
-    }
+  #content-inner:has(#post) #card-toc::-webkit-scrollbar{
+    display:none;
+  }
 }
