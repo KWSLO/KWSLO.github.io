@@ -86,7 +86,7 @@ rmf.fullScreen = function () {
     }
 };
 
-// 博客设置（通常指阅读模式/简繁切换）
+// 博客设置
 rmf.switchReadMode = function () {
     const $body = document.body;
     $body.classList.add('read-mode');
@@ -140,15 +140,33 @@ rmf.translate = function () {
 }
 
 rmf.searchinThisPage = () => {
-    let input = document.getElementsByClassName("local-search-box--input")[0];
-    let searchBtn = document.getElementsByClassName("search")[0];
-    if (!input || !searchBtn) return;
-    if (mask && mask.parentNode) document.body.removeChild(mask);
-    input.value = window.getSelection().toString();
-    searchBtn.click();
-    let evt = document.createEvent("HTMLEvents");
-    evt.initEvent("input", false, false);
-    input.dispatchEvent(evt);
+    let text = window.getSelection().toString().trim();
+    if (!text) {
+        if (typeof Snackbar !== 'undefined') {
+            Snackbar.show({
+                text: '请先选择文字',
+                pos: 'top-center'
+            });
+        }
+        return;
+    }
+    // 打开搜索框
+    let searchBtn = document.querySelector("#search-button .search");
+    if (searchBtn) {
+        searchBtn.click();
+    }
+
+    setTimeout(() => {
+        let input = document.querySelector(".local-search-input input");
+        if (!input) {
+            console.log("没有找到搜索输入框");
+            return;
+        }
+        input.value = text;
+        input.dispatchEvent(new Event("input", {
+            bubbles: true
+        }));
+    }, 500);
 }
 
 document.body.addEventListener('touchmove', function (e) { }, { passive: false });
