@@ -1,74 +1,67 @@
-/**
- * 导航栏滚动切换：向下滚动显示页面标题，向上滚动恢复菜单
- * 通过 CSS class 控制状态，避免内联样式污染
- */
-;(() => {
+(() => {
   'use strict'
-
-  const NAV_STATE_CLASS = 'nav-show-title' // 向下滚动时添加到 #nav
-  const SCROLL_THRESHOLD = 50
-
-  let lastScrollTop = 0
-  let ticking = false
-  let scrollHandler = null
-
-  function updateNav () {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop
-    const nav = document.getElementById('nav')
-    if (!nav) return
-
-    if (scrollTop > lastScrollTop && scrollTop > SCROLL_THRESHOLD) {
-      // 向下滚动：显示标题，隐藏菜单
-      nav.classList.add(NAV_STATE_CLASS)
-    } else {
-      // 向上滚动：恢复菜单，隐藏标题
-      nav.classList.remove(NAV_STATE_CLASS)
-    }
-
-    lastScrollTop = scrollTop
-    ticking = false
-  }
-
-  function onScroll () {
-    if (!ticking) {
-      window.requestAnimationFrame(updateNav)
-      ticking = true
+  let previousY = window.scrollY
+  let scheduled = false
+  let drawerObserver
+  function reset() {
+    drawerObserver?.disconnect()
+    const scene = document.getElementById('web_bg')
+    if (scene) document.getElementById('nav')?.style.setProperty('--bloom-nav-scene', getComputedStyle(scene).backgroundImage)
+    previousY = window.scrollY
+    document.getElementById('nav')?.classList.remove('nav-show-title')
+    const title = document.getElementById('page-name')
+    if (title) title.textContent = document.title.replace(/ \| Bloom Isle$/, '')
+    document.querySelectorAll('.mobile-tools [data-tool]').forEach(button => {
+      const tool = button.dataset.tool
+      button.hidden = ['readmode', 'mobile-toc-button'].includes(tool) && !document.getElementById(tool)
+    })
+    const drawer = document.getElementById('sidebar-menus')
+    const trigger = document.querySelector('#toggle-menu button')
+    if (drawer && trigger) {
+      const syncDrawer = () => {
+        const open = drawer.classList.contains('open')
+        trigger.setAttribute('aria-expanded', String(open))
+        trigger.setAttribute('aria-label', open ? '收起侧边栏' : '打开侧边栏')
+      }
+      syncDrawer()
+      drawerObserver = new MutationObserver(syncDrawer)
+      drawerObserver.observe(drawer, { attributes: true, attributeFilter: ['class'] })
     }
   }
-
-  function init () {
-    // 设置页面标题文字
-    const pageName = document.getElementById('page-name')
-    if (pageName) {
-      const titleParts = document.title.split(" | Bloom Isle")
-      pageName.innerText = titleParts[0] || document.title
-    }
-
-    // 清理旧监听器，避免 PJAX 切换后重复绑定
-    if (scrollHandler) {
-      window.removeEventListener('scroll', scrollHandler)
-    }
-
-    // 重置状态
-    lastScrollTop = window.scrollY || document.documentElement.scrollTop
-    const nav = document.getElementById('nav')
-    if (nav) nav.classList.remove(NAV_STATE_CLASS)
-
-    scrollHandler = onScroll
-    window.addEventListener('scroll', scrollHandler, { passive: true })
-  }
-
-  // 全局方法：回到顶部时重置 nav 状态
   window.scrollToTop = () => {
-    const nav = document.getElementById('nav')
-    if (nav) nav.classList.remove(NAV_STATE_CLASS)
-    if (typeof btf !== 'undefined') {
-      btf.scrollToDest(0, 500)
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
+    document.getElementById('nav')?.classList.remove('nav-show-title')
+    window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
   }
-
-  document.addEventListener('DOMContentLoaded', init)
-  document.addEventListener('pjax:complete', init)
+  document.addEventListener('click', event => {
+    if (event.target.closest('#page-name')) window.scrollToTop()
+    const button = event.target.closest('.mobile-tools [data-tool]')
+    if (!button) return
+    const tool = button.dataset.tool
+    if (tool === 'music') window.blogMusic?.togglePlayback()
+    else if (tool === 'music-prev') window.blogMusic?.previous()
+    else if (tool === 'music-next') window.blogMusic?.next()
+    else if (tool === 'music-retry') window.blogMusic?.retry()
+    else {
+      document.getElementById('menu-mask')?.click()
+      document.getElementById(tool)?.click()
+    }
+  })
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || !document.getElementById('sidebar-menus')?.classList.contains('open')) return
+    document.getElementById('menu-mask')?.click()
+    document.querySelector('#toggle-menu button')?.focus({ preventScroll: true })
+  })
+  window.addEventListener('scroll', () => {
+    if (scheduled) return
+    scheduled = true
+    requestAnimationFrame(() => {
+      const y = window.scrollY
+      const isPost = !!document.getElementById('post')
+      document.getElementById('nav')?.classList.toggle('nav-show-title', isPost && y > 100 && y > previousY)
+      previousY = y
+      scheduled = false
+    })
+  }, { passive: true })
+  document.addEventListener('DOMContentLoaded', reset)
+  document.addEventListener('pjax:complete', reset)
 })()

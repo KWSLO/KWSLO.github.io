@@ -1,6 +1,6 @@
 /* rightMenu */
 #rightMenu{
-    display: none;
+    display: block;
     position: fixed;
     width: 160px;
     height: fit-content;
@@ -56,3 +56,6 @@
 .rightMenu-group.hide{
     display: none;
 }
+
+#rightMenu[hidden], #rightMenu [hidden] { display: none; }
+#rightMenu { max-height: calc(100vh - 8px); overflow-y: auto; box-shadow: 0 8px 28px rgb(0 0 0 / .18); }

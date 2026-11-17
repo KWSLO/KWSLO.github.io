@@ -1,0 +1,19 @@
+Classic quotation excerpts used by the Bloom Isle homepage.
+
+Dictionary of Quotations from Ancient and Modern, English and Foreign Sources.
+Compiled by James Wood, 1893. Project Gutenberg eBook 48105.
+Many Thoughts of Many Minds. Compiled by Louis Klopsch, 1896.
+Project Gutenberg eBook 17112.
+Memorabilia Mathematica; or, the Philomath's Quotation-Book.
+Compiled by Robert Edouard Moritz, 1914. Project Gutenberg eBook 44730.
+The Art of War. Sun Tzu, translated by Lionel Giles, 1910.
+Project Gutenberg eBook 17405 (text without commentary).
+
+The first three works are quotation anthologies. Their printed attributions
+and, where available, references have been retained in the selection audit;
+the anthology title must not be represented as a work by the quoted person.
+English renderings follow these editions; no new Chinese translations were
+manufactured. Whitespace and terminal punctuation have been normalized.
+Full research snapshots are not deployed with the website.
+Project Gutenberg's provided license is retained in LICENSE-Project-Gutenberg.txt.
+Chinese classical texts from chinese-poetry retain LICENSE-chinese-poetry.txt.

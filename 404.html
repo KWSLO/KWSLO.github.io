@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>页面未找到 | Bloom Isle</title><meta name="author" content="花满渚"><meta name="copyright" content="花满渚"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#FAF8F2"><meta name="description" content="Someone who loves to write and share.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bloom Isle">
+<meta property="og:url" content="http://bloomisle.cc/404.html">
+<meta property="og:site_name" content="Bloom Isle">
+<meta property="og:description" content="Someone who loves to write and share.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://bloomisle.cc/image/Columbina.jpg">
+<meta property="article:author" content="花满渚">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://bloomisle.cc/image/Columbina.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/image/optimized/favicon-64.png"><link rel="canonical" href="http://bloomisle.cc/404.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.7.0"><link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css"><noscript><style>#nav {position:relative;height:auto;min-height:60px;flex-wrap:wrap}
+#nav #menus {flex-basis:100%;justify-content:flex-start}
+#nav #menus > .menus_items {display:flex;position:static;transform:none;flex-wrap:wrap}
+#nav #nav-right, #music-player, .mobile-tools {display:none}</style></noscript><link rel="stylesheet" href="/vendor/snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        const data = { value }
+
+        if (ttl != null) {
+          data.expiry = Date.now() + ttl * 86400000
+        }
+
+        localStorage.setItem(key, JSON.stringify(data))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return
+
+        try {
+          const data = JSON.parse(itemStr)
+
+          if (data.expiry && Date.now() > data.expiry) {
+            localStorage.removeItem(key)
+            return
+          }
+
+          return data.value
+        } catch {
+          localStorage.removeItem(key)
+        }
+      }
+    }
+
+    const scriptCache = new Map()
+    const cssCache = new Map()
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => {
+        if (scriptCache.has(url)) {
+          return scriptCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+
+          script.src = url
+          script.async = true
+
+          for (const key in attr) {
+            script.setAttribute(key, attr[key])
+          }
+
+          script.onload = resolve
+          script.onerror = reject
+
+          document.head.appendChild(script)
+        })
+
+        scriptCache.set(url, promise)
+
+        return promise
+      },
+      getCSS: (url, id) => {
+        if (cssCache.has(url)) {
+          return cssCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+
+          link.rel = 'stylesheet'
+          link.href = url
+
+          if (id) {
+            link.id = id
+          }
+
+          link.onload = resolve
+          link.onerror = reject
+
+          document.head.appendChild(link)
+        })
+
+        cssCache.set(url, promise)
+
+        return promise
+      },
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+      const activateDarkMode = () => {
+        document.documentElement.dataset.theme = 'dark'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#2B2926')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.dataset.theme = 'light'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#FAF8F2')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      // Reading width is a per-page action; discard the legacy sticky preference.
+      localStorage.removeItem('aside-status')
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":true,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 花满渚","link":"链接: ","source":"来源: Bloom Isle","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'medium_zoom',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#ac503a","bgDark":"#514139","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '页面未找到',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: '404'
+}</script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/nav.css"><link rel="stylesheet" href="/css/quotes.css?v=2000-20261117"><link rel="stylesheet" href="/css/discovery.css"><link rel="stylesheet" href="/css/rightmenu.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/toc.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div id="loading-box" aria-hidden="true"><div class="loader-o"><div class="wrapper"><div class="squares"><span class="load-square"></span><span class="load-square"></span></div><p>loading</p></div></div></div><script>(() => {
+  const box = document.getElementById('loading-box')
+  if (!box) return
+  // Decoration must not lock reading while images or services load.
+  const close = () => {
+    box.classList.add('loaded')
+    document.documentElement.classList.add('pl-done')
+  }
+  let seen = false
+  try {
+    seen = sessionStorage.getItem('__preloader_done') === '1'
+    sessionStorage.setItem('__preloader_done', '1')
+  } catch (_) {}
+  if (seen || matchMedia('(prefers-reduced-motion: reduce)').matches) close()
+  else {
+    box.classList.add('is-loading')
+    const fallback = setTimeout(close, 1500)
+    document.addEventListener('DOMContentLoaded', () => {
+      clearTimeout(fallback)
+      close()
+    }, { once: true })
+  }
+})()</script><div id="music-player"><section id="music-panel" hidden aria-label="音乐播放器"><div class="music-panel-heading"><span>音乐</span><button id="music-collapse" type="button" aria-label="收起音乐面板"><i class="fas fa-chevron-down" aria-hidden="true"></i> 收起</button></div><div id="music-mount"></div><div class="music-transport" hidden><button id="music-prev" type="button" aria-label="上一首">上一首</button><button id="music-list-toggle" type="button" aria-label="展开或收起原歌单">歌单</button><button id="music-next" type="button" aria-label="下一首">下一首</button></div><span id="music-status" role="status" aria-live="polite"></span><button id="music-retry" type="button" hidden>重试加载</button></section><button id="music-toggle" type="button" aria-expanded="false" aria-controls="music-panel" title="展开音乐面板"><i class="fas fa-music" aria-hidden="true"></i><span>音乐</span></button></div><div class="bg-animation" id="web_bg" style="background-image: url(/image/optimized/background-1920.webp);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/image/Columbina.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><!-- 添加网站名--><div class="author-info-name">花满渚</div><!-- 添加网站描述--><div class="author-info-description">Someone who loves to write and share.</div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-book-open"></i><span> 博客</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 主题</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div class="mobile-tools" aria-label="阅读与音乐工具"><button type="button" data-tool="darkmode">切换明暗</button><button type="button" data-tool="mobile-toc-button">文章目录</button><button type="button" data-tool="readmode">阅读模式</button><button type="button" data-tool="go-up">回到顶部</button><button type="button" data-tool="music">音乐 / 播放暂停</button><button type="button" data-tool="music-prev">上一首</button><button type="button" data-tool="music-next">下一首</button><button type="button" data-tool="music-retry" hidden="hidden">重试播放</button><span data-music-track="data-music-track" hidden="hidden"></span><span data-music-status="data-music-status" role="status" aria-live="polite"></span></div></div></div><div class="page type-404" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Bloom Isle</span></a></span><div id="menus"><div id="mask-name-container"><div id="name-container"><button id="page-name" type="button" title="回到顶部" aria-label="回到顶部">Bloom Isle</button></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-book-open"></i><span> 博客</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 主题</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="nav-right"><div id="search-button"><button class="site-page social-icon search" type="button" aria-label="搜索文章"><i class="fas fa-search fa-fw"></i><span> 搜索</span></button></div><div id="toggle-menu"><button class="site-page" type="button" aria-label="打开侧边栏" aria-controls="sidebar-menus" aria-expanded="false"><i class="fas fa-bars fa-fw"></i></button></div></div></div></nav><h1 class="title-seo">Bloom Isle</h1></header><main class="layout hide-aside" id="content-inner"><div class="nc" id="page"><div class="error-content"><div class="error-img"><img src="/img/error-page.png" alt="Page not found"></div><div class="error-info"><h1 class="error_title">404</h1><div class="error_subtitle">这条小径暂时没有内容</div><div class="bloom-error-links"><a href="/">回到小岛</a><a href="/archives/">查看归档</a></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By 花满渚</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.7.0</a></span></div><div class="footer_custom_text">Hi, welcome to my <a href="https://bloomisle.cc/">blog</a>! Bloom Isle 是一座漂浮在花海中的小岛，记录旅人与创造者留下的故事。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div class="js-pjax" id="rightMenu" hidden="hidden"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();" rel="external nofollow noreferrer"><i class="fa fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();" rel="external nofollow noreferrer"><i class="fa fa-arrow-right"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();" rel="external nofollow noreferrer"><i class="fa fa-refresh"></i></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.scrollToTop()"><i class="fa fa-arrow-up"></i></a></div><div class="rightMenu-group rightMenu-line" id="menu-text" hidden="hidden"><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.copySelect()"><i class="fa fa-copy"></i><span>复制</span></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="window.open('https://www.bing.com/search?q='+encodeURIComponent(window.getSelection().toString()), '_blank', 'noopener,noreferrer');"><i class="iconfont2 icon-bing"></i><span>Bing搜索</span></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.searchinThisPage()"><i class="fas fa-search"></i><span>站内搜索</span></a></div><div class="rightMenu-group rightMenu-line" id="menu-too" hidden="hidden"><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="window.open(window.getSelection().toString());"><i class="fa fa-link"></i><span>转到链接</span></a></div><div class="rightMenu-group rightMenu-line" id="menu-paste" hidden="hidden"><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.paste()"><i class="fa fa-copy"></i><span>粘贴</span></a></div><div class="rightMenu-group rightMenu-line" id="menu-post" hidden="hidden"><a class="rightMenu-item" href="#post-comment"><i class="fas fa-comment"></i><span>空降评论</span></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.copyWordsLink()"><i class="fa fa-link"></i><span>复制本文地址</span></a></div><div class="rightMenu-group rightMenu-line" id="menu-to" hidden="hidden"><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>新窗口打开</span></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.open()"><i class="fa fa-link"></i><span>转到链接</span></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.copyLink()"><i class="fa fa-copy"></i><span>复制链接</span></a></div><div class="rightMenu-group rightMenu-line" id="menu-img" hidden="hidden"><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.saveAs()"><i class="fa fa-download"></i><span>保存图片</span></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>在新窗口打开</span></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.click()"><i class="fa fa-arrows-alt"></i><span>全屏显示</span></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.copyLink()"><i class="fa fa-copy"></i><span>复制图片链接</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.musicPlay()"><i class="iconfont2 icon-bofang"></i><span>播放音乐</span></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.musicPause()"><i class="iconfont2 icon-zanting"></i><span>暂停音乐</span></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.musicPrev()"><i class="iconfont2 icon-shangyishou"></i><span>上一首</span></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.musicNext()"><i class="iconfont2 icon-xiayishou"></i><span>下一首</span></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.musicLrc()"><i class="iconfont2 icon-geci"></i><span>歌词开关</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="/license/"><i class="fa fa-info-circle"></i><span>版权声明</span></a><a class="rightMenu-item" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="rmf.fullScreen()"><i class="fas fa-expand"></i><span>进入全屏</span></a></div></div><div><script src="/js/utils.js?v=5.7.0"></script><script src="/js/main.js?v=5.7.0"></script><script src="/vendor/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script src="/vendor/snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script src="/js/reading.js" defer></script><script src="/js/music.js?v=20261117" defer></script><script src="/js/nav.js" defer></script><script src="/js/quotes.js?v=2000-20261117" defer></script><script src="/js/discovery-archive.js" defer></script><script src="/js/discovery.js" defer></script><script src="/js/sakura.js" defer></script><script src="/js/custom.js" defer></script><script src="/js/rightmenu.js" defer></script><script src="/vendor/pjax/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  // CDN failure must leave ordinary navigation usable.
+  if (typeof Pjax !== 'function') return
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([data-fancybox]):not([data-choose-post])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      if (!item.parentNode) return
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || ''
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    const responseURL = e.request && e.request.responseURL
+    if (e.request && e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404.html')
+        : responseURL && (window.location.href = responseURL)
+    } else if (responseURL) {
+      window.location.href = responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog" role="dialog" aria-modal="true" aria-label="搜索文章" tabindex="-1"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button" type="button" aria-label="关闭搜索"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="search" aria-label="搜索关键词"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.7.0"></script></div></div></body></html>

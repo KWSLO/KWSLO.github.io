@@ -50,7 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const scrollDownInIndex = () => {
     const handleScrollToDest = () => {
-      btf.scrollToDest(document.getElementById('content-inner').offsetTop, 300)
+      const navHeight = document.getElementById('nav')?.offsetHeight || 0
+      btf.scrollToDest(Math.max(0, document.getElementById('content-inner').offsetTop - navHeight - 16), 300)
     }
 
     const $scrollDownEle = document.getElementById('scroll-down')
@@ -533,7 +534,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!target) return
 
         e.preventDefault()
-        btf.scrollToDest(btf.getEleTop(document.getElementById(decodeURI(target.getAttribute('href')).replace('#', ''))), 300)
+        const heading = document.getElementById(decodeURI(target.getAttribute('href')).replace('#', ''))
+        heading?.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
         if (window.innerWidth < 900) {
           $cardTocLayout.classList.remove('open')
         }
@@ -663,20 +665,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const rightSideFn = {
     readmode: () => { // read mode
       const $body = document.body
+      if ($body.classList.contains('read-mode')) return
+      const previousFocus = document.activeElement
       const newEle = document.createElement('button')
 
       const exitReadMode = () => {
-        $body.classList.remove('read-mode')
+        const restoreLayout = () => $body.classList.remove('read-mode')
+        if (window.blogReading) window.blogReading.preservePosition(restoreLayout)
+        else restoreLayout()
         newEle.remove()
         newEle.removeEventListener('click', exitReadMode)
+        document.removeEventListener('keydown', onReadKey)
+        document.removeEventListener('pjax:send', exitReadMode)
+        if (previousFocus?.isConnected) previousFocus.focus({ preventScroll: true })
       }
+      const onReadKey = event => { if (event.key === 'Escape') exitReadMode() }
 
-      $body.classList.add('read-mode')
+      const enterLayout = () => $body.classList.add('read-mode')
+      if (window.blogReading) window.blogReading.preservePosition(enterLayout)
+      else enterLayout()
       newEle.type = 'button'
       newEle.className = 'exit-readmode'
+      newEle.title = '退出阅读模式（Esc）'
+      newEle.setAttribute('aria-label', '退出阅读模式')
       newEle.innerHTML = '<i class="fas fa-sign-out-alt"></i>'
       newEle.addEventListener('click', exitReadMode)
+      document.addEventListener('keydown', onReadKey)
+      document.addEventListener('pjax:send', exitReadMode, { once: true })
       $body.appendChild(newEle)
+      newEle.focus({ preventScroll: true })
     },
     darkmode: () => { // switch between light and dark mode
       const willChangeMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
@@ -706,11 +723,15 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     'hide-aside-btn': () => { // Hide aside
       const $htmlDom = document.documentElement.classList
-      const saveStatus = $htmlDom.contains('hide-aside') ? 'show' : 'hide'
-      btf.saveToLocal.set('aside-status', saveStatus, 2)
-      $htmlDom.toggle('hide-aside')
+      const switchWidth = () => $htmlDom.toggle('hide-aside')
+      if (window.blogReading) window.blogReading.preservePosition(switchWidth)
+      else switchWidth()
     },
     'mobile-toc-button': (p, item) => { // Show mobile toc
+      if (window.blogReading?.toggleToc) {
+        window.blogReading.toggleToc()
+        return
+      }
       const tocEle = document.getElementById('card-toc')
       tocEle.style.transition = 'transform 0.3s ease-in-out'
 

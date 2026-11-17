@@ -114,7 +114,7 @@ class LocalSearch {
     this._processedKeywords = null
     // Compute highlight param once instead of per-article
     const highlightParam = keywords.join(' ')
-    this.datas.forEach(({ title, content, url }) => {
+    this.datas.forEach(({ title, content, url, placeholder }) => {
       // The number of different keywords included in the article.
       const [indexOfTitle, keysOfTitle] = this.getIndexByWord(keywords, title)
       const [indexOfContent, keysOfContent] = this.getIndexByWord(keywords, content)
@@ -166,6 +166,7 @@ class LocalSearch {
         resultItem += `<li class="local-search-hit-item"><a href="${url.href}"><span class="search-result-title">${title}</span>`
       }
 
+      if (placeholder) resultItem += '<span class="bloom-post-status">待更新</span>'
       slicesOfContent.forEach(slice => {
         resultItem += `<p class="search-result">${this.highlightKeyword(content, slice)}...</p>`
       })
@@ -182,8 +183,11 @@ class LocalSearch {
   }
 
   fetchData () {
+    if (this.fetching) return
+    this.fetching = true
+    this.failed = false
     const isXml = !this.path.endsWith('json')
-    fetch(this.path)
+    fetch(this.path, { signal: AbortSignal.timeout(10000) })
       .then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`)
         return response.text()
@@ -202,6 +206,7 @@ class LocalSearch {
         this.datas = this.datas.filter(data => data.title).map(data => {
           data.title = data.title.trim()
           data.content = data.content ? data.content.trim().replace(/<[^>]+>/g, '') : ''
+          data.placeholder = data.content.trim() === '提前占位'
           data.url = decodeURIComponent(data.url).replace(/\/{2,}/g, '/')
           return data
         })
@@ -209,11 +214,13 @@ class LocalSearch {
         window.dispatchEvent(new Event('search:loaded'))
       })
       .catch(error => {
-        console.error('Local search data fetch failed:', error)
+        console.warn('Local search data fetch failed:', error)
         this.isfetched = true
+        this.failed = true
         this.datas = []
         window.dispatchEvent(new Event('search:loaded'))
       })
+      .finally(() => { this.fetching = false })
   }
 
   // Highlight by wrapping node in mark elements with the given class name
@@ -420,8 +427,29 @@ window.addEventListener('load', () => {
     }
   }
 
+  const showLoadError = () => {
+    clearSearchResults()
+    $results.append(document.createTextNode('搜索索引暂时加载失败，可以重试或从分类继续浏览。 '))
+    const retry = document.createElement('button')
+    retry.type = 'button'
+    retry.textContent = '重新加载'
+    retry.className = 'bloom-search-retry'
+    retry.addEventListener('click', () => {
+      retry.disabled = true
+      retry.textContent = '正在加载…'
+      localSearch.fetchData()
+    })
+    $results.append(retry)
+    const categories = document.createElement('a')
+    categories.href = '/categories/'
+    categories.textContent = '浏览分类 ↗'
+    $results.append('　', categories)
+    window.pjax && window.pjax.refresh($results)
+  }
+
   const inputEventFunction = () => {
     if (!localSearch.isfetched) return
+    if (localSearch.failed) { showLoadError(); return }
     let searchText = $input.value.trim().toLowerCase()
     isXml && (searchText = searchText.replace(/</g, '&lt;').replace(/>/g, '&gt;'))
 
@@ -486,18 +514,31 @@ window.addEventListener('load', () => {
     resizeTimer = setTimeout(fixSafariHeight, 150)
   }
 
+  let returnFocus = null
+  let focusTimer
   const handleEscape = event => {
-    if (event.code === 'Escape') {
+    if (event.code === 'Escape' || event.key === 'Escape') {
       closeSearch()
       document.removeEventListener('keydown', handleEscape)
+    } else if (event.key === 'Tab') {
+      const targets = [...$searchDialog.querySelectorAll('a[href],button:not(:disabled),input')].filter(node => node.getClientRects().length)
+      const first = targets[0]
+      const last = targets[targets.length - 1]
+      if (event.shiftKey && (document.activeElement === first || document.activeElement === $searchDialog)) {
+        event.preventDefault(); last?.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault(); first?.focus()
+      }
     }
   }
 
   const openSearch = () => {
+    returnFocus = document.activeElement
     btf.overflowPaddingR.add()
     btf.animateIn($searchMask, 'to_show 0.5s')
     btf.animateIn($searchDialog, 'titleScale 0.5s')
-    setTimeout(() => { $input.focus() }, 300)
+    clearTimeout(focusTimer)
+    focusTimer = setTimeout(() => { $input.focus() }, 300)
     if (!loadFlag) {
       !localSearch.isfetched && localSearch.fetchData()
       $input.addEventListener('input', debouncedInputEvent)
@@ -511,11 +552,14 @@ window.addEventListener('load', () => {
   }
 
   const closeSearch = () => {
+    clearTimeout(focusTimer)
+    clearTimeout(searchTimeout)
     btf.overflowPaddingR.remove()
     btf.animateOut($searchDialog, 'search_close .5s')
     btf.animateOut($searchMask, 'to_hide 0.5s')
     document.removeEventListener('keydown', handleEscape)
     window.removeEventListener('resize', onResize)
+    if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true })
   }
 
   const searchClickFn = () => {
@@ -551,8 +595,12 @@ window.addEventListener('load', () => {
 
   window.addEventListener('search:loaded', () => {
     const $loadDataItem = document.getElementById('loading-database')
-    $loadDataItem.nextElementSibling.style.visibility = 'visible'
-    $loadDataItem.remove()
+    if ($loadDataItem) {
+      $loadDataItem.nextElementSibling.style.visibility = 'visible'
+      $loadDataItem.remove()
+    }
+    if (localSearch.failed) showLoadError()
+    else inputEventFunction()
   })
 
   searchClickFn()

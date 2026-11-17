@@ -1,0 +1,30 @@
+/* The quote keeps the original hero subtitle's light typography. */
+#page-header.full_page:has(#home-quote) #site-info { top: 50%; transform: translateY(-50%); padding: 0 24px; }
+.bloom-home-quote { max-width: 800px; margin: 14px auto 0; color: #fffaf3; text-align: center; text-shadow: 0 2px 5px #342a28aa; }
+.bloom-home-quote [hidden] { display: none !important; }
+.bloom-home-quote .home-quote-line { display: grid; width: 100%; margin: 0; padding: 4px 0; border: 0; border-radius: 0; background: none; color: inherit; font-family: 'Songti SC', SimSun, serif; font-size: 22px; font-weight: 400; line-height: 1.85; letter-spacing: .06em; text-align: center; text-wrap: pretty; text-shadow: inherit; cursor: pointer; }
+.home-quote-line { transition: none; }
+.home-quote-line:disabled { cursor: text; }
+.bloom-home-quote[data-quote-language='latin'] .home-quote-line { font-family: Georgia, 'Times New Roman', serif; letter-spacing: .01em; }
+.home-quote-measure, .home-quote-typing { grid-area: 1 / 1; }
+.home-quote-measure { visibility: hidden; pointer-events: none; }
+.bloom-home-quote .home-quote-original-text { margin: 4px auto 0; max-width: 720px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; font-weight: 400; line-height: 1.65; letter-spacing: .015em; opacity: .88; text-wrap: pretty; }
+.home-quote-meta { margin-top: 10px; font-family: 'Songti SC', SimSun, serif; font-size: 13px; font-weight: 400; line-height: 1.75; letter-spacing: .04em; }
+#page-header .home-quote-source { color: inherit; opacity: .85; text-decoration: none; }
+.home-quote-source::before { content: '— '; }
+.home-quote-author { margin-right: 7px; }
+.home-quote-work { font-style: normal; }
+.home-quote-line:focus-visible { outline: 1px solid #fff8eb; outline-offset: 5px; border-radius: 4px; }
+.home-quote-announcement { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 900px) {
+  #page-header.full_page:has(#home-quote) #site-info { padding: 0 28px; }
+  .bloom-home-quote { margin-top: 14px; max-width: 620px; }
+  .bloom-home-quote .home-quote-line { font-size: 18px; line-height: 1.85; letter-spacing: .035em; }
+  .bloom-home-quote .home-quote-original-text { margin-top: 5px; font-size: 13px; line-height: 1.55; }
+  .home-quote-meta { margin-top: 9px; font-size: 12px; text-wrap: balance; }
+  .bloom-home-quote[data-quote-language='latin'] .home-quote-line { font-size: 17px; line-height: 1.65; }
+}
+@media (max-width: 900px) and (max-height: 600px) {
+  .bloom-home-quote[data-quote-language='latin'] { margin-top: 10px; }
+  .bloom-home-quote[data-quote-language='latin'] .home-quote-line { font-size: 16px; line-height: 1.55; letter-spacing: 0; }
+}
